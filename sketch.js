@@ -106,7 +106,7 @@ function draw() {
   fill(255)
   textSize(height/40)
   textAlign(CENTER)
-  text("SLEEP PHASES",width/2,height/+30)
+  text("SLEEP PHASES",width/2,height/20)
   text(s,width/2,height-80)
 
 
