@@ -9,6 +9,8 @@ var img25,img26,img27,img28,img29,img30,img31,img32,img33,img34,img35,img36,img3
 var previousMillis = 0;
 
 var i = 0
+var progress = 1
+
 
 function preload(){
   
@@ -61,6 +63,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight)
   frameRate(30)
   textFont('Roboto Mono')
+  
   
  
   mm = new MouseMarker(mouseX, mouseY);
@@ -136,6 +139,10 @@ function draw() {
     v[i].draw();
     v[i].addAlertness(vAlertness);
   }
+  
+  sleepbar()
+  countdown()
+  
 }
 
 function newTarget() {
@@ -224,7 +231,7 @@ Vehicle.prototype.update = function() {
     
   }
   
-  this.grow = this.grow + 0.1
+  this.grow = this.grow + 0.3
   
   
   this.velocity.add(this.acceleration)
@@ -306,9 +313,10 @@ Vehicle.prototype.draw = function() {
     s = 'LIGHT'
     this.maxspeed = 4
     
+    if (this.alertness < 10){
     imageList1 = [img1,img2,img3,img2,img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19];
-    animaImage(0,0, radius, 10,imageList1);
-    
+    animaImage(0,0, radius *0.8, 10,imageList1);
+    }
   }
   if (this.state == 2) {
     circler = 255;    circleg = 255;    circleb = 255;
@@ -321,9 +329,10 @@ Vehicle.prototype.draw = function() {
     s = 'DEEP'
     this.maxspeed = 2
     
+    if (this.alertness < 10){
     imageList2 = [img20,img21,img22,img23,img24];
-    animaImage(0, 0, radius, 50,imageList2);
-
+    animaImage(0, 0, radius *0.8, 50,imageList2);
+    }
   }
   if (this.state == 3) {
 
@@ -341,8 +350,10 @@ Vehicle.prototype.draw = function() {
     s = 'REM'
     this.maxspeed = 0.2
     
+    if (this.alertness < 10){
     imageList3 = [img25,img26,img27,img28,img29,img30,img31,img32,img33];
-    animaImage(0, 0, radius, 100,imageList3);
+    animaImage(0, 0, radius *0.8, 100,imageList3);
+    }
   }
   
   x = x + random(speed1, speed1*2);
@@ -378,6 +389,12 @@ x = x * pull1;
     this.lastupdate= millis()
     this.state= 1
     this.grow = 0
+    }
+    
+    if (progress == 0){
+      this.lastupdate= millis()
+      this.state= 1
+      this.grow = 0
     }
     
   stroke(20,100)
@@ -419,3 +436,33 @@ function windowResized() {
     previousMillis = millis();
    } 
   }
+  
+  function sleepbar() {
+  stroke(20,100)
+  strokeWeight(2)
+  //line(width - 30, height - 30,width - 30,   )
+  
+  }
+  
+  function countdown() {
+  
+  progress = progress + 1
+  push()
+  text(`SLEEP DURATION`, 100, height -22)
+  stroke(200,200)
+  strokeWeight(2)
+  line(200,height-20, width-30, height-20)
+  
+  strokeWeight(5)
+  line(200+ progress, height-20, 200 + progress, height - 40)
+  pop()
+  
+  if (progress > width - 200){
+    progress = 0
+    
+  }
+  
+    
+  }
+  
+  
