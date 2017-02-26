@@ -397,16 +397,6 @@ x = x * pull1;
       this.grow = 0
     }
     
-  stroke(20,100)
-  strokeWeight(2)
-  line(0,radius/2,0,height - this.position.y - 30)
-  
-  rotate(Math.PI*-0.5)
-  
-  fill(255)
-  textSize(height/40)
-  text(s,-height + this.position.y + 30 ,0)
-  
   pop()
 }
 
