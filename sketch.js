@@ -215,7 +215,7 @@ var Vehicle = function(x, y, color) {
   this.maxAlertness = 60;
   this.state=1
   this.lastupdate = 0
-  this.levelup = 3000
+  this.levelup = 10000
   this.grow = 0
 }
 
