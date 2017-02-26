@@ -444,7 +444,7 @@ function windowResized() {
   
   function countdown() {
   
-  progress = progress + 0.2
+  progress = progress + 0.0006*windowWidth;
   push()
   text(`0hrs`, 30, height -22)
   text(`8hrs`, width - 30, height -22)
