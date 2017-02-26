@@ -448,21 +448,23 @@ function windowResized() {
   
   progress = progress + 1
   push()
-  text(`SLEEP DURATION`, 100, height -22)
+  text(`0hrs`, 30, height -22)
+  text(`8hrs`, width - 30, height -22)
   stroke(200,200)
   strokeWeight(2)
-  line(200,height-20, width-30, height-20)
+  line(50,height-20, width-55, height-20)
   
   strokeWeight(5)
-  line(200+ progress, height-20, 200 + progress, height - 40)
+  line(50+ progress, height-20, 50 + progress, height - 40)
   pop()
   
-  if (progress > width - 200){
+  if (progress > width - 105){
     progress = 0
     
   }
   
     
   }
+  
   
   
