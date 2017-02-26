@@ -21,11 +21,11 @@ A complete sleep cycle takes an average of 90 to 110 minutes.
 
 In the three phases our body behaves in different ways: 
 
-In light sleep you drift in and out of sleep and can be awakened easily, muscles and eyes move very suddenly and you have glimpses of clear realistic images. 
+In light sleep we drift in and out of sleep and can be awakened easily, muscles and eyes move very suddenly we you have glimpses of clear realistic images. 
 
-In deep sleep there is no eye movement and very low muscle activity, you picture abstract, blurry images. 
+In deep sleep there is no eye movement and very low muscle activity, we picture abstract, blurry images. 
 
-In REM sleep, which is the phase where we dream there is absolutely no muscle movement, eyes jerk rapidly and we produce realistic, but unreal images.
+In REM sleep, which is the phase where we dream there is absolutely no muscle movement, eyes jerk rapidly and we produce realistic images.
 
 We decided to show three behaviors: muscle activity, eye movement and perceived images.
 
