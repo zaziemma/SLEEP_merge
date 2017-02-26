@@ -323,7 +323,7 @@ Vehicle.prototype.draw = function() {
     
     if (this.alertness < 10){
     imageList1 = [img1,img2,img3,img2,img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19];
-    animaImage(0,0, radius *0.8, 10,imageList1);
+    animaImage(0,0, radius *0.8, 20,imageList1);
     }
   }
   if (this.state == 2) {
@@ -339,7 +339,7 @@ Vehicle.prototype.draw = function() {
     
     if (this.alertness < 10){
     imageList2 = [img20,img21,img22,img23,img24];
-    animaImage(0, 0, radius *0.8, 50,imageList2);
+    animaImage(0, 0, radius *0.8, 10,imageList2);
     }
   }
   if (this.state == 3) {
@@ -360,7 +360,7 @@ Vehicle.prototype.draw = function() {
     
     if (this.alertness < 10){
     imageList3 = [img25,img26,img27,img28,img29,img30,img31,img32,img33];
-    animaImage(0, 0, radius *0.8, 100,imageList3);
+    animaImage(0, 0, radius *0.8, 150,imageList3);
     }
   }
   
