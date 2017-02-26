@@ -1,3 +1,4 @@
+var phaseText = 'LIGHT';
 var v; // all vehicles
 var t; // all targets
 var mm;
@@ -9,8 +10,6 @@ var img25,img26,img27,img28,img29,img30,img31,img32,img33,img34,img35,img36,img3
 var previousMillis = 0;
 
 var i = 0
-var progress = 1
-
 
 function preload(){
   
@@ -64,7 +63,6 @@ function setup() {
   frameRate(30)
   textFont('Roboto Mono')
   
-  
  
   mm = new MouseMarker(mouseX, mouseY);
 
@@ -100,8 +98,18 @@ function draw() {
   textSize(height/40)
   textAlign(CENTER)
   text("SLEEP PHASES",width/2,height/+30)
-
-
+  
+  textSize(height/50)
+  textAlign(LEFT)
+  text( phaseText ,width/20,height-height/20)
+  
+   
+  textSize(height/50)
+  textAlign(RIGHT)
+  var millisecond = millis();
+  text("time: \n" + millisecond, width-width/20, height-height/20);
+  
+  
   mm.setPosition(mouseX, mouseY);
   mm.addAlertness(alertness);
   mm.update();
@@ -139,10 +147,6 @@ function draw() {
     v[i].draw();
     v[i].addAlertness(vAlertness);
   }
-  
-  sleepbar()
-  countdown()
-  
 }
 
 function newTarget() {
@@ -213,7 +217,7 @@ var Vehicle = function(x, y, color) {
   this.maxAlertness = 60;
   this.state=1
   this.lastupdate = 0
-  this.levelup = 3000
+  this.levelup = 20000
   this.grow = 0
 }
 
@@ -231,7 +235,7 @@ Vehicle.prototype.update = function() {
     
   }
   
-  this.grow = this.grow + 0.3
+  this.grow = this.grow + 0.1
   
   
   this.velocity.add(this.acceleration)
@@ -310,13 +314,12 @@ Vehicle.prototype.draw = function() {
     
     speed1 = 0.3;
     pull1 = 0.9;
-    s = 'LIGHT'
+    phaseText = 'LIGHT'
     this.maxspeed = 4
     
-    if (this.alertness < 10){
     imageList1 = [img1,img2,img3,img2,img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19];
-    animaImage(0,0, radius *0.8, 10,imageList1);
-    }
+    animaImage(0,0, radius, 10,imageList1);
+    
   }
   if (this.state == 2) {
     circler = 255;    circleg = 255;    circleb = 255;
@@ -326,13 +329,12 @@ Vehicle.prototype.draw = function() {
     circler2 = 255;    circleg2 = 255;    circleb2 = 255;
     
     speed1= 0.1
-    s = 'DEEP'
+    phaseText = 'DEEP'
     this.maxspeed = 2
     
-    if (this.alertness < 10){
     imageList2 = [img20,img21,img22,img23,img24];
-    animaImage(0, 0, radius *0.8, 50,imageList2);
-    }
+    animaImage(0, 0, radius, 50,imageList2);
+
   }
   if (this.state == 3) {
 
@@ -347,13 +349,11 @@ Vehicle.prototype.draw = function() {
     
     speed1= 0.5
     pull1=0.99
-    s = 'REM'
+    phaseText = 'REM'
     this.maxspeed = 0.2
     
-    if (this.alertness < 10){
     imageList3 = [img25,img26,img27,img28,img29,img30,img31,img32,img33];
-    animaImage(0, 0, radius *0.8, 100,imageList3);
-    }
+    animaImage(0, 0, radius, 100,imageList3);
   }
   
   x = x + random(speed1, speed1*2);
@@ -391,13 +391,11 @@ x = x * pull1;
     this.grow = 0
     }
     
-    if (progress == 0){
-      this.lastupdate= millis()
-      this.state= 1
-      this.grow = 0
-    }
     
-  stroke(20,100)
+    
+ 
+
+  /* stroke(20,100)
   strokeWeight(2)
   line(0,radius/2,0,height - this.position.y - 30)
   
@@ -405,7 +403,7 @@ x = x * pull1;
   
   fill(255)
   textSize(height/40)
-  text(s,-height + this.position.y + 30 ,0)
+  text(s,-height + this.position.y + 30 ,0) */
   
   pop()
 }
@@ -414,7 +412,6 @@ x = x * pull1;
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
-
 
 
 
@@ -436,33 +433,3 @@ function windowResized() {
     previousMillis = millis();
    } 
   }
-  
-  function sleepbar() {
-  stroke(20,100)
-  strokeWeight(2)
-  //line(width - 30, height - 30,width - 30,   )
-  
-  }
-  
-  function countdown() {
-  
-  progress = progress + 1
-  push()
-  text(`SLEEP DURATION`, 100, height -22)
-  stroke(200,200)
-  strokeWeight(2)
-  line(200,height-20, width-30, height-20)
-  
-  strokeWeight(5)
-  line(200+ progress, height-20, 200 + progress, height - 40)
-  pop()
-  
-  if (progress > width - 200){
-    progress = 0
-    
-  }
-  
-    
-  }
-  
-  
