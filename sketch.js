@@ -14,6 +14,7 @@ var progress = 1
 
 
 function preload(){
+  mySong = loadSound('assets/Pleasure.mp3');
   
   img1 = loadImage("assets/jellyfish1.png");
   img2 = loadImage("assets/jellyfish2.png");
@@ -64,6 +65,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight)
   frameRate(30)
   textFont('Roboto Mono')
+  mySong.loop();
   
   
  
@@ -88,6 +90,10 @@ function setup() {
 }
 
 function draw() {
+    var alertSound1 = map(dist(mouseX, mouseY, pmouseX, pmouseY), 0, 200, 1, 0);
+    var alertSound2 = map(dist(mouseX, mouseY, pmouseX, pmouseY), 0, 200, 1, 6);
+    mySong.rate(alertSound2);
+    mySong.amp(alertSound1);
   
 
     var alertness = map(dist(mouseX, mouseY, pmouseX, pmouseY), 0, 200, 0, 100)
@@ -215,7 +221,7 @@ var Vehicle = function(x, y, color) {
   this.maxAlertness = 60;
   this.state=1
   this.lastupdate = 0
-  this.levelup = 10000
+  this.levelup = 3000
   this.grow = 0
 }
 
