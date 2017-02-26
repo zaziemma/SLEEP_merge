@@ -2,6 +2,7 @@ var v; // all vehicles
 var t; // all targets
 var mm;
 var count = 1;
+var s = 1
 
 var img1,img2,img3,img2,img1,img2,img3,img4,img5,img6,img7,img8,img9,img10,img11,img12,img13,img14,img15,img16,img17,img18,img19,img20,img21,img22,img23,img24;
 var img25,img26,img27,img28,img29,img30,img31,img32,img33,img34,img35,img36,img37,img38,img39,img40,img41;
@@ -100,6 +101,7 @@ function draw() {
   textSize(height/40)
   textAlign(CENTER)
   text("SLEEP PHASES",width/2,height/+30)
+  text(s,width/2,height-80)
 
 
   mm.setPosition(mouseX, mouseY);
@@ -289,7 +291,7 @@ Vehicle.prototype.draw = function() {
 
   var speed1 = 0
   var pull1 = 0.9;
-  var s = 0
+  
 
   colorMode(RGB);
 
