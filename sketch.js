@@ -452,10 +452,10 @@ function windowResized() {
   text(`8hrs`, width - 30, height -22)
   stroke(200,200)
   strokeWeight(2)
-  line(50,height-20, width-55, height-20)
+  line(55,height-20, width-55, height-20)
   
   strokeWeight(5)
-  line(50+ progress, height-20, 50 + progress, height - 40)
+  line(55+ progress, height-20, 55 + progress, height - 40)
   pop()
   
   if (progress > width - 105){
