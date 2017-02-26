@@ -433,3 +433,33 @@ function windowResized() {
     previousMillis = millis();
    } 
   }
+  
+  function sleepbar() {
+  stroke(20,100)
+  strokeWeight(2)
+  //line(width - 30, height - 30,width - 30,   )
+  
+  }
+  
+  function countdown() {
+  
+  progress = progress + 1
+  push()
+  text(`0hrs`, 30, height -22)
+  text(`8hrs`, width - 30, height -22)
+  stroke(200,200)
+  strokeWeight(2)
+  line(55,height-20, width-55, height-20)
+  
+  strokeWeight(5)
+  line(55+ progress, height-20, 55 + progress, height - 40)
+  pop()
+  
+  if (progress > width - 105){
+    progress = 0
+    
+  }
+  
+    
+  }
+
